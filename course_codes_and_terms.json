@@ -1,0 +1,212 @@
+[
+    {
+        "code": "2300105",
+        "expected": [1, 1],
+        "terms": [1, 2],
+        "credits": 4
+    },
+    {
+        "code": "2380109",
+        "expected": [1, 1],
+        "terms": [1],
+        "credits": 3
+    },
+    {
+        "code": "2360119",
+        "expected": [1, 1],
+        "terms": [1, 2],
+        "credits": 5
+    },
+    {
+        "code": "5710111",
+        "expected": [1, 1],
+        "terms": [1],
+        "credits": 4
+    },
+    {
+        "code": "6390101",
+        "expected": [1, 1],
+        "terms": [1, 2],
+        "credits": 4
+    },
+    {
+        "code": "2300106",
+        "expected": [1, 2],
+        "terms": [1, 2],
+        "credits": 4
+    },
+    {
+        "code": "2360120",
+        "expected": [1, 2],
+        "terms": [1, 2],
+        "credits": 5
+    },
+    {
+        "code": "2360260",
+        "expected": [1, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710140",
+        "expected": [1, 2],
+        "terms": [1, 2],
+        "credits": 4
+    },
+    {
+        "code": "6390102",
+        "expected": [1, 2],
+        "terms": [1, 2],
+        "credits": 4
+    },
+    {
+        "code": "2360219",
+        "expected": [2, 1],
+        "terms": [1],
+        "credits": 4
+    },
+    {
+        "code": "5670281",
+        "expected": [2, 1],
+        "terms": [1],
+        "credits": 4
+    },
+    {
+        "code": "5710213",
+        "expected": [2, 1],
+        "terms": [1, 2],
+        "credits": 4
+    },
+    {
+        "code": "5710223",
+        "expected": [2, 1],
+        "terms": [1],
+        "credits": 3
+    },
+    {
+        "code": "5710222",
+        "expected": [2, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710232",
+        "expected": [2, 2],
+        "terms": [2],
+        "credits": 4
+    },
+    {
+        "code": "5710242",
+        "expected": [2, 2],
+        "terms": [2],
+        "credits": 4
+    },
+    {
+        "code": "5710280",
+        "expected": [2, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710315",
+        "expected": [3, 1],
+        "terms": [1],
+        "credits": 3
+    },
+    {
+        "code": "5710331",
+        "expected": [3, 1],
+        "terms": [1],
+        "credits": 3
+    },
+    {
+        "code": "5710351",
+        "expected": [3, 1],
+        "terms": [1],
+        "credits": 3
+    },
+    {
+        "code": "5710334",
+        "expected": [3, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710336",
+        "expected": [3, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710350",
+        "expected": [3, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710384",
+        "expected": [3, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710435",
+        "expected": [4, 1],
+        "terms": [1],
+        "credits": 3
+    },
+    {
+        "code": "5710477",
+        "expected": [4, 1],
+        "terms": [1],
+        "credits": 3
+    },
+    {
+        "code": "5710491",
+        "expected": [4, 1],
+        "terms": [1],
+        "credits": 4
+    },
+    {
+        "code": "5710443",
+        "expected": [4, 1],
+        "terms": [1],
+        "credits": 3
+    },
+    {
+        "code": "5710462",
+        "expected": [4, 1],
+        "terms": [1],
+        "credits": 3
+    },
+    {
+        "code": "5710492",
+        "expected": [4, 2],
+        "terms": [2],
+        "credits": 4
+    },
+    {
+        "code": "5710489",
+        "expected": [4, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710495",
+        "expected": [4, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710453",
+        "expected": [4, 2],
+        "terms": [2],
+        "credits": 3
+    },
+    {
+        "code": "5710499",
+        "expected": [4, 2],
+        "terms": [2],
+        "credits": 3
+    }
+]
