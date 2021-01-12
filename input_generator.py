@@ -27,8 +27,8 @@ exam_names = json.load(fp)
 fp.close()
 
 parser = argparse.ArgumentParser(description="Generates input files for CENG443 HW3")
-parser.add_argument('--location', '-l', dest='location', action='store', default="./input", help="Folder location to generate files to")
-parser.add_argument('--student-count', '-sc', dest='student_count', action='store', type=int, default=50, help="Number of student records to be generated")
+parser.add_argument('--location', '-l', dest='location', action='store', default="./input", help="Folder location to generate files to (default: %(default)s)")
+parser.add_argument('--student-count', '-sc', dest='student_count', action='store', type=int, default=50, help="Number of student records to be generated (default: %(default)s)")
 parser.add_argument('--fail-possible', '-fp', dest='fail_possible', action='store_true', help="Check if fail is possible")
 parser.add_argument('--fail-not-possible', '-fnp', dest='fail_possible', action='store_false', help="Check if fail is not possible")
 parser.set_defaults(fail_possible=True)
@@ -42,6 +42,26 @@ if path.exists(folder_location):
 
 os.mkdir(folder_location)
 print('Folder created at {}!'.format(folder_location))
+
+def createFile(first_line, second_line, exam, counter, min, error_range):
+    third_line = "{}".format(exam)
+    question_count = random.choice(EXAM_QUESTION_COUNTS)
+    true_answer_prob = min + random.random() * error_range
+    fourth_line = ""
+
+    for _ in range(question_count):
+        rand_float = random.random()
+
+        if rand_float < EMPTY_CHANCE:
+            fourth_line += 'E'
+        elif rand_float < (EMPTY_CHANCE + true_answer_prob):
+            fourth_line += 'T'
+        else:
+            fourth_line += 'F'
+
+    fp = open('{}{}{}.txt'.format(folder_location, PATH_SEPARATOR, counter), 'w', encoding='utf-8')
+    fp.write("\n".join([first_line, second_line, third_line, fourth_line]))
+    fp.close()
 
 year_student_pair = {}
 student_per_year = int(round(float(args.student_count) / len(years)))
@@ -81,7 +101,7 @@ for year in years:
         failed_courses = []
 
         for code in course_codes:
-            is_failed = random.random() <= FAIL_CHANCE
+            is_failed = random.random() <= FAIL_CHANCE and args.fail_possible
             course_expected_semester = course_data_dictionary[code]['expected']
             course_taken_at = (year + course_expected_semester[0] - 1) * 10 + course_expected_semester[1]
             second_line = "{} {} {}".format(course_taken_at, code, course_data_dictionary[code]['credits'])
@@ -89,26 +109,13 @@ for year in years:
             if is_failed:
                 failed_courses.append(code)
 
-            for exam in exam_names:
-                third_line = "{}".format(exam)
-                question_count = random.choice(EXAM_QUESTION_COUNTS)
-                true_answer_prob = 0.60 + random.random() * 0.30
-                fourth_line = ""
-
-                for _ in range(question_count):
-                    rand_float = random.random()
-
-                    if rand_float < EMPTY_CHANCE:
-                        fourth_line += 'E'
-                    elif rand_float < (EMPTY_CHANCE + true_answer_prob):
-                        fourth_line += 'T'
-                    else:
-                        fourth_line += 'F'
-
-                fp = open('{}{}{}.txt'.format(folder_location, PATH_SEPARATOR, counter), 'w', encoding='utf-8')
-                fp.write("\n".join([first_line, second_line, third_line, fourth_line]))
-                fp.close()
-                counter += 1
+                for exam in exam_names:
+                    createFile(first_line, second_line, exam, counter, 0.5, 0.2)
+                    counter += 1
+            else:
+                for exam in exam_names:
+                    createFile(first_line, second_line, exam, counter, 0.7, 0.3)
+                    counter += 1
 
         for code in failed_courses:
             course_expected_semester = course_data_dictionary[code]['expected']
@@ -129,22 +136,5 @@ for year in years:
             second_line = "{} {} {}".format(course_taken_at, code, course_data_dictionary[code]['credits'])
 
             for exam in exam_names:
-                third_line = "{}".format(exam)
-                question_count = random.choice(EXAM_QUESTION_COUNTS)
-                true_answer_prob = 0.60 + random.random() * 0.30
-                fourth_line = ""
-
-                for _ in range(question_count):
-                    rand_float = random.random()
-
-                    if rand_float < EMPTY_CHANCE:
-                        fourth_line += 'E'
-                    elif rand_float < (EMPTY_CHANCE + true_answer_prob):
-                        fourth_line += 'T'
-                    else:
-                        fourth_line += 'F'
-
-                fp = open('{}{}{}.txt'.format(folder_location, PATH_SEPARATOR, counter), 'w', encoding='utf-8')
-                fp.write("\n".join([first_line, second_line, third_line, fourth_line]))
-                fp.close()
+                createFile(first_line, second_line, exam, counter, 0.7, 0.3)
                 counter += 1
